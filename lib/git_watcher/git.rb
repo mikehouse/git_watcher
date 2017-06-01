@@ -16,7 +16,7 @@ module GitWatcher
     def initialize(repo, branch, commits)
       @repo = repo
       @branch = branch
-      @commits = commits ? commits : 3
+      @commits = commits ? commits : 10
     end
 
     def exists_locally?

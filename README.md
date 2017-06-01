@@ -5,7 +5,7 @@ Then this tool is what you need.
 
 `GitWatcher` will notify you through MacOS Notification Center (right Bar `Notification` section). Less words, just watch it yourself
 
-<img src="preview.jpg" style="width: 50%; height: 50%"/>
+<img src="preview.jpg" width="50%" height="50%">
 
 ### Installation
 
@@ -76,8 +76,11 @@ git_watcher show
 
 ### Note
 
-Be aware that to track changes `git_watcher` clones repositories you have provided for. It can take some disk space.
-All repos cloned to `~/Library/Application Support/com.git.watcher/`
+- Be aware that to track changes `git_watcher` clones repositories you have provided for. It can take some disk space.
+- All repos cloned to `~/Library/Application Support/com.git.watcher/`
+- That don't flood Notification Center, `git_watcher` will check last 10 commits. But for just new repository the first fetch will use the most last commit, after that (on next cron schedule) it will fetch last 10 commits and compare are there new commits relative first fetched one. 
+
+
 
 ### Contributing
 
