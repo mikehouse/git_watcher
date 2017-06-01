@@ -78,9 +78,17 @@ git_watcher show
 
 - Be aware that to track changes `git_watcher` clones repositories you have provided for. It can take some disk space.
 - All repos cloned to `~/Library/Application Support/com.git.watcher/`
-- That don't flood Notification Center, `git_watcher` will check last 10 commits. But for just new repository the first fetch will use the most last commit, after that (on next cron schedule) it will fetch last 10 commits and compare are there new commits relative first fetched one. 
+- That don't flood Notification Center, `git_watcher` will check last 10 commits. But for just new repository the first fetch will use the most last commit, after that (on next cron schedule) it will fetch last 10 commits and compare are there new commits relative first fetched one.
+- If repository is too big, it might have not been fetched before next cron schedule then checks for it might fail. To work this out you can set cron's update interval big enough until this repo gets fetched or you can manually clone repo to `~/Library/Application Support/com.git.watcher/`.  
 
+### Debugging
 
+- View the cron logs do `cat /var/mail/$USER`
+- You can run manual repositories' checks to see what's going on, just run
+
+```bash
+git_watcher update
+```
 
 ### Contributing
 
