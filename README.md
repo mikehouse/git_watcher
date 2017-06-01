@@ -84,7 +84,9 @@ git_watcher show
 ### Debugging
 
 - View the cron logs do `cat /var/mail/$USER`
-- You can run manual repositories' checks to see what's going on, just run
+- View cron's tasks `crontab -l`
+- Edit cron's tasks `crontab -e` if something went wrong to rollback made changes
+- You can run manual repositories' checks to see what's going on, just run:
 
 ```bash
 git_watcher update
