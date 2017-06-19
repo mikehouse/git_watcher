@@ -43,9 +43,15 @@ module GitWatcher
           set_cron(3)
         when 'disable'
           disable_cron
+        when 'list'
+          cron_list
         else
           set_cron(value)
       end
+    end
+
+    def self.cron_list
+      puts `crontab -l`
     end
 
     def self.disable_cron
@@ -127,6 +133,7 @@ module GitWatcher
           cron 5 - set to run script every given interval (values can be 3, 5, 10, 30 and 60 minutes)
           cron enable - enable cron schedule by default value (3 minutes is default)
           cron disable - disable script's schedule
+          cron list - cron's schedule
       """
       puts help
       exit

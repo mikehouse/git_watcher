@@ -34,7 +34,7 @@ module GitWatcher
 
       switch_to_repository
 
-      hashes = `git log -#{count} | grep commit`.split(' ').select { |e| !e.include?('commit') }
+      hashes = `git log -#{count} | grep "^commit [a-zA-Z0-9]\\{40\\}$"`.split(' ').select { |e| !e.include?('commit') }
       exit_on_cmd_error
 
       repo_name = @repo.split('/').last.split('.').first
@@ -42,8 +42,8 @@ module GitWatcher
       hashes.collect do |hash|
         commit = Commit.new
 
-        commit.title = repo_name + '/' + @branch + '/' + `git log #{hash} -1 | grep Author:`['Author:'.length..-1].strip
-        commit.date = `git log #{hash} -1 | grep Date:`['Date:'.length..-1].strip
+        commit.title = repo_name + '/' + @branch + '/' + `git log #{hash} -1 | grep "^Author:.*"`['Author:'.length..-1].strip
+        commit.date = `git log #{hash} -1 | grep "^Date:.*"`['Date:'.length..-1].strip
 
         commit_full = `git log #{hash} -1`
         length_to_crop = commit_full.index(commit.date) + commit.date.length + 1
