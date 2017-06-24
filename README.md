@@ -1,6 +1,6 @@
 ## GitWatcher (MacOS only)
 
-Want to know when your colleagues did changes to your favorite branch? Or want to know when junior did commit without your attention? 
+Want to know when your colleagues did changes to your favorite branch? Or want to know when junior did commit without your attention?
 Then this tool is what you need.
 
 `GitWatcher` will notify you through MacOS Notification Center (right Bar `Notification` section). Less words, just watch it yourself
@@ -9,7 +9,7 @@ Then this tool is what you need.
 
 ### Installation
 
-Unfortunately, it's not in public repository because of it's in testing stage yet. 
+Unfortunately, it's not in public repository because of it's in testing stage yet.
 
 ```bash
 gem install bundler
@@ -25,7 +25,7 @@ gem install git_watcher-0.1.0.gem
 - Full list of commands `git_watcher -h`
 
 - Let's say, you wanna track changes in RxSwift repository in `master` branch, then you should do this:
- 
+
 ```bash
 git_watcher add https://github.com/ReactiveX/RxSwift.git master
 ```
@@ -37,7 +37,7 @@ git_watcher add https://github.com/ReactiveX/RxSwift.git develop
 ```
 
 - To start watching changes you must schedule it, to do that you should run this:
- 
+
 ```bash
 git_watcher cron enable
 ```
@@ -74,6 +74,12 @@ git_watcher remove https://github.com/ReactiveX/RxSwift.git
 git_watcher show
 ```
 
+- List cron's schedule
+
+```bash
+git_watcher cron list
+```
+
 ### Note
 
 - Be aware that to track changes `git_watcher` clones repositories you have provided for. It can take some disk space.
@@ -99,4 +105,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/mikeho
 ### License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
