@@ -155,7 +155,9 @@ module GitWatcher
       end
 
       Dir.chdir(project_path)
-      `git stash && git pull origin #{@branch}`
+
+      `git stash && git checkout #{@branch} && git pull origin #{@branch}`
+      
       exit_on_cmd_error
     end
 
